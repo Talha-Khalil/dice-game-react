@@ -27,6 +27,11 @@ button{
     margin-top: 20px;
     font-family: 'Lobster', sans-serif;
     padding: 10px 15px;
-    font-size: 20px;
-
+    font-size: 25px;
+    background-color: #F4EEE9;
+    border: none;
+    cursor: pointer;
+}
+button:hover{
+    scale: 1.02;
 }

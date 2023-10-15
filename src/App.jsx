@@ -5,7 +5,6 @@ import DiceComponenet from './components/DiceComponenet'
 const App = () => {
   const [randomNumber1 , setRandomNumber1] = useState(6)
   const [randomNumber2 , setRandomNumber2] = useState(6)
-  // Math.floor(Math.random() * 6) + 1
   const [headerText , setHeaderText] = useState('')
   const [initialFlag , setInitialFlag] = useState(false)
 
@@ -15,6 +14,7 @@ const App = () => {
     setRandomNumber2(Math.floor(Math.random() * 6) + 1)
   }
   useEffect(()=>{
+
     if(randomNumber1 > randomNumber2){
       setHeaderText('🚩 Player 1 wins.')
     }else if (randomNumber1 < randomNumber2){
@@ -23,10 +23,10 @@ const App = () => {
       setHeaderText('Draw')
     }
 
-    if(!initialFlag)
-    setHeaderText('Roll to start')
-    setInitialFlag(true)
-
+    if(!initialFlag){
+      setHeaderText('Roll to start')
+      setInitialFlag(true)
+    }
 
 
   },[randomNumber1 , randomNumber2])
@@ -40,7 +40,7 @@ const App = () => {
         <DiceComponenet text='Player 1' randomNumber={randomNumber1} />
         <DiceComponenet text='Player 2' randomNumber={randomNumber2} />
       </div>
-      <button onClick={rollDice} >Roll dice 🎲</button>
+      <button onClick={rollDice} >Roll dices 🎲</button>
     </div>
   )
 }
